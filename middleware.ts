@@ -19,7 +19,7 @@ export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
   
   console.time('query to basehub')
-  const variants =( await basehub().query({
+  const variants =(await basehub().query({  
     sets: {
       languages: {
         variants: {

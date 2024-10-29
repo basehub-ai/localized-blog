@@ -108,7 +108,7 @@ export default async function PostPage({ params }: PageProps) {
                   Blog.
                 </Link>
               </h2>
-              <Post {...post} />
+              <Post {...post} locale={locale} />
               <hr className="mt-28 mb-24" />
               <MoreStories
                 morePosts={morePostsData.blog.posts.items}

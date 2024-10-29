@@ -51,7 +51,7 @@ export function HeroPost({
             </Link>
           </h3>
           <div className="mb-4 md:mb-0 text-base dark:text-white/60 text-black/60">
-            <Date dateString={date} />
+            <Date dateString={date} locale={locale} />
           </div>
         </div>
         <div>

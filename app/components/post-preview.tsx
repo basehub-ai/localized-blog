@@ -25,7 +25,7 @@ export function PostPreview({
         </Link>
       </h3>
       <div className="text-base dark:text-white/60 text-black/60 mb-4">
-        <Date dateString={date} />
+        <Date dateString={date} locale={locale} />
       </div>
       <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
       {author && <Avatar title={author._title} url={author.avatar.url} />}

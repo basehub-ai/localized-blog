@@ -14,7 +14,7 @@ export const PostFragment = fragmentOn("PostsItem", {
 
 export type PostFragment = fragmentOn.infer<typeof PostFragment>;
 
-export function Post({ _title, author, date, coverImage, body }: PostFragment) {
+export function Post({ _title, author, date, coverImage, body, locale }: PostFragment & { locale: string }) {
   return (
     <article>
       <h1 className="mb-12 text-center text-6xl font-bold leading-tight tracking-tighter md:text-left md:text-7xl md:leading-none lg:text-8xl">
@@ -25,7 +25,7 @@ export function Post({ _title, author, date, coverImage, body }: PostFragment) {
         {author && <Avatar title={author._title} url={author.avatar.url} />}
       </div>
       <div className="hidden md:block md:mb-12 text-base dark:text-white/60 text-black/60">
-        <Date dateString={date} />
+        <Date dateString={date} locale={locale} />
       </div>
 
       <div className="mb-8 sm:mx-0 md:mb-16">
@@ -37,7 +37,7 @@ export function Post({ _title, author, date, coverImage, body }: PostFragment) {
           {author && <Avatar title={author._title} url={author.avatar.url} />}
         </div>
         <div className="mb-12 text-base dark:text-white/60 text-black/60 block md:hidden">
-          <Date dateString={date} />
+          <Date dateString={date} locale={locale} />
         </div>
       </div>
 
