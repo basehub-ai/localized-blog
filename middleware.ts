@@ -24,15 +24,15 @@ export async function middleware(request: NextRequest) {
   
   console.time('query to basehub')
   const variants =(await basehub().query({  
-    sets: {
-      languages: {
+    settings: {
+      language: {
         variants: {
           apiName: true,
           isDefault: true
         }
       }
     }
-  })).sets.languages.variants
+  })).settings.language.variants
   console.timeEnd('query to basehub')
 
   const locales = variants.map((v) => v.apiName)

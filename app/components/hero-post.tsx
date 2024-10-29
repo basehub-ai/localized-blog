@@ -3,7 +3,7 @@ import Date from "./date";
 import CoverImage from "./cover-image";
 import Avatar from "./avatar";
 import { fragmentOn } from "basehub";
-import { LanguagesEnum } from "@/.basehub/schema";
+import { LanguageEnum } from "@/.basehub/schema";
 
 export const PostMetaFragment = fragmentOn("PostsItem", {
   _id: true,
@@ -34,7 +34,7 @@ export function HeroPost({
   author,
   _slug,
   locale,
-}: PostMetaFragment & { locale: LanguagesEnum }) {
+}: PostMetaFragment & { locale: LanguageEnum }) {
   return (
     <section>
       <div className="mb-8 md:mb-16">

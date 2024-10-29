@@ -1,8 +1,8 @@
-import { LanguagesEnum } from "@/.basehub/schema";
+import { LanguageEnum } from "@/.basehub/schema";
 import { Pump } from "basehub/react-pump";
 import { RichText } from "basehub/react-rich-text";
 
-export function Intro({ locale }: { locale: LanguagesEnum }) {
+export function Intro({ locale }: { locale: LanguageEnum }) {
   return (
     <Pump
       queries={[
@@ -10,7 +10,7 @@ export function Intro({ locale }: { locale: LanguagesEnum }) {
           blog: {
             __args: {
               variants: {
-                languages: locale,
+                language: locale,
               },
             },
             subtitle: {

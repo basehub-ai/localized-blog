@@ -2,13 +2,13 @@ import { Pump } from "basehub/react-pump";
 import { Intro } from "../components/intro";
 import { HeroPost, PostMetaFragment } from "../components/hero-post";
 import { MoreStories } from "../components/more-stories";
-import { LanguagesEnum } from "@/.basehub/schema";
+import { LanguageEnum } from "@/.basehub/schema";
 import { basehub } from "basehub";
 
 export async function generateStaticParams() {
   const locales = await basehub().query({
-    sets: {
-      languages: {
+    settings: {
+      language: {
         variants: {
           apiName: true,
         },
@@ -16,13 +16,13 @@ export async function generateStaticParams() {
     },
   });
 
-  return locales.sets.languages.variants.map((v) => ({ locale: v.apiName }));
+  return locales.settings.language.variants.map((v) => ({ locale: v.apiName }));
 }
 
 export default async function Page({
   params,
 }: {
-  params: Promise<{ locale: LanguagesEnum }>;
+  params: Promise<{ locale: LanguageEnum }>;
 }) {
   const { locale } = await params;
   return (
@@ -32,7 +32,7 @@ export default async function Page({
           blog: {
             __args: {
               variants: {
-                languages: locale,
+                language: locale,
               },
             },
             morePosts: true,

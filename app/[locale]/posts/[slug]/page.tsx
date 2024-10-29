@@ -6,13 +6,13 @@ import { Pump } from "basehub/react-pump";
 import { Post, PostFragment } from "@/app/components/post";
 import { MoreStories } from "@/app/components/more-stories";
 import { PostMetaFragment } from "@/app/components/hero-post";
-import { LanguagesEnum } from "@/.basehub/schema";
+import { LanguageEnum } from "@/.basehub/schema";
 
 export async function generateStaticParams() {
   const data = await basehub().query({
     blog: { posts: { items: { _slug: true } } },
-    sets: {
-      languages: {
+    settings: {
+      language: {
         variants: {
           apiName: true,
         },
@@ -21,14 +21,14 @@ export async function generateStaticParams() {
   });
 
   return data.blog.posts.items.flatMap((post) =>
-    data.sets.languages.variants.map((variant) => ({
+    data.settings.language.variants.map((variant) => ({
       slug: post._slug,
       locale: variant.apiName,
     }))
   );
 }
 
-type PageProps = { params: Promise<{ slug: string; locale: LanguagesEnum }> };
+type PageProps = { params: Promise<{ slug: string; locale: LanguageEnum }> };
 
 export async function generateMetadata({
   params,
@@ -38,7 +38,7 @@ export async function generateMetadata({
     blog: {
       __args: {
         variants: {
-          languages: locale,
+          language: locale,
         },
       },
       posts: {
@@ -65,7 +65,7 @@ export default async function PostPage({ params }: PageProps) {
           blog: {
             __args: {
               variants: {
-                languages: locale,
+                language: locale,
               },
             },
             morePosts: true,
@@ -79,7 +79,7 @@ export default async function PostPage({ params }: PageProps) {
           blog: {
             __args: {
               variants: {
-                languages: locale,
+                language: locale,
               },
             },
             posts: {

@@ -3,7 +3,7 @@ import Avatar from "./avatar";
 import Date from "./date";
 import CoverImage from "./cover-image";
 import { PostMetaFragment } from "./hero-post";
-import { LanguagesEnum } from "@/.basehub/schema";
+import { LanguageEnum } from "@/.basehub/schema";
 
 export function PostPreview({
   _title,
@@ -13,7 +13,7 @@ export function PostPreview({
   author,
   _slug,
   locale,
-}: PostMetaFragment & { locale: LanguagesEnum }) {
+}: PostMetaFragment & { locale: LanguageEnum }) {
   return (
     <div>
       <div className="mb-5">

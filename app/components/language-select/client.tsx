@@ -1,5 +1,5 @@
 "use client";
-import { LanguagesEnum } from "@/.basehub/schema";
+import { LanguageEnum } from "@/.basehub/schema";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Select } from "../select";
@@ -10,7 +10,7 @@ export const ClientSelectRoot = ({
   defaultValue,
 }: {
   children: React.ReactNode;
-  defaultValue: LanguagesEnum;
+  defaultValue: LanguageEnum;
 }) => {
   const pathname = usePathname();
   const router = useRouter();

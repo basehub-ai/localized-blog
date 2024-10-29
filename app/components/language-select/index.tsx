@@ -8,16 +8,16 @@ import {
   SelectValue,
 } from "../select";
 import { Pump } from "basehub/react-pump";
-import type { LanguagesEnum } from "@/.basehub/schema";
+import type { LanguageEnum } from "@/.basehub/schema";
 import { ClientSelectRoot } from "./client";
 
-export function LanguageSelect({ locale }: { locale: LanguagesEnum }) {
+export function LanguageSelect({ locale }: { locale: LanguageEnum }) {
   return (
     <Pump
       queries={[
         {
-          sets: {
-            languages: {
+          settings: {
+            language: {
               variants: {
                 apiName: true,
                 id: true,
@@ -30,7 +30,7 @@ export function LanguageSelect({ locale }: { locale: LanguagesEnum }) {
     >
       {async ([
         {
-          sets: { languages },
+          settings: { language },
         },
       ]) => {
         "use server";
@@ -41,7 +41,7 @@ export function LanguageSelect({ locale }: { locale: LanguagesEnum }) {
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>
-                {languages.variants.map((language) => (
+                {language.variants.map((language) => (
                   <SelectItem key={language.id} value={language.apiName}>
                     {language.label}
                   </SelectItem>

@@ -6,7 +6,7 @@ import Footer from "../components/footer";
 import { CMS_NAME } from "@/lib/constants";
 import "../globals.css";
 import { LanguageSelect } from "../components/language-select";
-import { LanguagesEnum } from "@/.basehub/schema";
+import { LanguageEnum } from "@/.basehub/schema";
 
 export const metadata: Metadata = {
   title: `Next.js and ${CMS_NAME} Example`,
@@ -18,7 +18,7 @@ export default async function RootLayout({
   params,
 }: Readonly<{
   children: React.ReactNode;
-  params: Promise<{ locale: LanguagesEnum }>;
+  params: Promise<{ locale: LanguageEnum }>;
 }>) {
   const { locale } = await params;
   return (

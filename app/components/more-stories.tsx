@@ -1,15 +1,15 @@
 import { PostPreview } from "./post-preview";
 import { PostMetaFragment } from "./hero-post";
-import { LanguagesEnum } from "@/.basehub/schema";
+import { LanguageEnum } from "@/.basehub/schema";
 
 export function MoreStories({
   morePosts,
   title,
-  locale
+  locale,
 }: {
   morePosts: PostMetaFragment[];
   title: React.ReactNode;
-  locale: LanguagesEnum
+  locale: LanguageEnum;
 }) {
   return (
     <section>
