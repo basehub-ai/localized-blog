@@ -5,12 +5,16 @@ import { cookies } from "next/headers";
 import { basehub } from "basehub";
 
 // Get the preferred locale, similar to the above or using a library
-function getLocale(request: Request, locales: string[], defaultLocale: string) { 
-  const languages = new Negotiator({headers: Object.fromEntries(request.headers)}).languages()
+async function getLocale(request: Request, locales: string[], defaultLocale: string) { 
+  const cookieManager = await cookies()
+  const localeFromCookies = cookieManager.get('preferred-language')?.value
+  const negotiator = new Negotiator({headers: Object.fromEntries(request.headers)})
+  const preferredLanguages = localeFromCookies ? [localeFromCookies] : negotiator.languages()
+
   try {
-    return match(languages, locales, defaultLocale) 
+    return match(preferredLanguages, locales, defaultLocale) 
   } catch {
-    return defaultLocale
+    return localeFromCookies ?? defaultLocale
   }
 }
 
@@ -34,16 +38,18 @@ export async function middleware(request: NextRequest) {
   const locales = variants.map((v) => v.apiName)
   const defaultLocale = variants.find((v) => v.isDefault)?.apiName ?? 'en'
 
-  const pathnameHasLocale = locales.some(
+  const pathnameHasLocale = locales.find(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   )
+  
+  if (pathnameHasLocale) {
+    const response =  NextResponse.next()
+    response.cookies.set('preferred-language', pathnameHasLocale)
+    return response 
+  }
 
-  if (pathnameHasLocale) return
-
-  const cookieManager = await cookies()
-  const localeFromCookies = cookieManager.get('preferred-locale')?.value || defaultLocale
   // Redirect if there is no locale
-  const locale = getLocale(request, locales, localeFromCookies)
+  const locale = await getLocale(request, locales, defaultLocale)
   request.nextUrl.pathname = `/${locale}${pathname}`
   // e.g. incoming request is /products
   // The new URL is now /en-US/products

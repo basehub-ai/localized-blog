@@ -9,7 +9,7 @@ dependencies:
     specifier: 0.5.6
     version: 0.5.6
   '@radix-ui/react-select':
-    specifier: ^2.1.2
+    specifier: 2.1.2
     version: 2.1.2(@types/react-dom@18.2.22)(@types/react@18.2.67)(react-dom@19.0.0-rc-1631855f-20241023)(react@19.0.0-rc-1631855f-20241023)
   basehub:
     specifier: 7.5.19
@@ -23,9 +23,6 @@ dependencies:
   geist:
     specifier: 1.2.2
     version: 1.2.2(next@15.0.1)
-  js-cookie:
-    specifier: ^3.0.5
-    version: 3.0.5
   lucide-react:
     specifier: ^0.454.0
     version: 0.454.0(react@19.0.0-rc-1631855f-20241023)
@@ -46,9 +43,6 @@ devDependencies:
   '@tailwindcss/typography':
     specifier: 0.5.10
     version: 0.5.10(tailwindcss@3.4.1)
-  '@types/js-cookie':
-    specifier: 3.0.6
-    version: 3.0.6
   '@types/negotiator':
     specifier: 0.6.3
     version: 0.6.3
@@ -71,8 +65,8 @@ devDependencies:
     specifier: 9.7.0
     version: 9.7.0
   eslint-config-next:
-    specifier: 15.0.2-canary.6
-    version: 15.0.2-canary.6(eslint@9.7.0)(typescript@5.4.3)
+    specifier: 15.0.1
+    version: 15.0.1(eslint@9.7.0)(typescript@5.4.3)
   postcss:
     specifier: 8.4.38
     version: 8.4.38
@@ -737,8 +731,8 @@ packages:
     resolution: {integrity: sha512-lc4HeDUKO9gxxlM5G2knTRifqhsY6yYpwuHspBZdboZe0Gp+rZHBNNSIjmQKDJIdRXiXGyVnSD6gafrbQPvILQ==}
     dev: false
 
-  /@next/eslint-plugin-next@15.0.2-canary.6:
-    resolution: {integrity: sha512-9+VEWI63L9yTCGUyt4znnuelNJmwNgv883F6maozkgmrzdOkmJhv+W5Zhggg6ZoaW3JIwhhnZH+WJO2AD4+rJw==}
+  /@next/eslint-plugin-next@15.0.1:
+    resolution: {integrity: sha512-bKWsMaGPbiFAaGqrDJvbE8b4Z0uKicGVcgOI77YM2ui3UfjHMr4emFPrZTLeZVchi7fT1mooG2LxREfUUClIKw==}
     dependencies:
       fast-glob: 3.3.1
     dev: true
@@ -1353,10 +1347,6 @@ packages:
     dependencies:
       '@types/unist': 3.0.3
     dev: false
-
-  /@types/js-cookie@3.0.6:
-    resolution: {integrity: sha512-wkw9yd1kEXOPnvEeEV1Go1MmxtBJL0RR79aOTAApecWFVu7w0NNXNqhcWgvw2YgZDYadliXkl14pa3WXw5jlCQ==}
-    dev: true
 
   /@types/json-schema@7.0.15:
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
@@ -2461,8 +2451,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /eslint-config-next@15.0.2-canary.6(eslint@9.7.0)(typescript@5.4.3):
-    resolution: {integrity: sha512-qzq2zZll4NSClCOS5qEuSzJK73wKEsERM1SKrA1QClceaIUIynNgi1dk9abQw1G5MvKt6C6/Y7yxY6okfO7u0g==}
+  /eslint-config-next@15.0.1(eslint@9.7.0)(typescript@5.4.3):
+    resolution: {integrity: sha512-3cYCrgbH6GS/ufApza7XCKz92vtq4dAdYhx++rMFNlH2cAV+/GsAKkrr4+bohYOACmzG2nAOR+uWprKC1Uld6A==}
     peerDependencies:
       eslint: ^7.23.0 || ^8.0.0 || ^9.0.0
       typescript: '>=3.3.1'
@@ -2470,7 +2460,7 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@next/eslint-plugin-next': 15.0.2-canary.6
+      '@next/eslint-plugin-next': 15.0.1
       '@rushstack/eslint-patch': 1.10.4
       '@typescript-eslint/eslint-plugin': 6.21.0(@typescript-eslint/parser@8.11.0)(eslint@9.7.0)(typescript@5.4.3)
       '@typescript-eslint/parser': 8.11.0(eslint@9.7.0)(typescript@5.4.3)
@@ -3426,11 +3416,6 @@ packages:
     resolution: {integrity: sha512-gFqAIbuKyyso/3G2qhiO2OM6shY6EPP/R0+mkDbyspxKazh8BXDC5FiFsUjlczgdNz/vfra0da2y+aHrusLG/Q==}
     hasBin: true
     dev: true
-
-  /js-cookie@3.0.5:
-    resolution: {integrity: sha512-cEiJEAEoIbWfCZYKWhVwFuvPX1gETRYPw6LlaTKoxD3s2AkXzkCjnp6h0V77ozyqj0jakteJ4YqDJT830+lVGw==}
-    engines: {node: '>=14'}
-    dev: false
 
   /js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}

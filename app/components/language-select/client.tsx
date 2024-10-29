@@ -2,7 +2,6 @@
 import { LanguagesEnum } from "@/.basehub/schema";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import Cookie from "js-cookie";
 import { Select } from "../select";
 import { useRouter } from "next/navigation";
 
@@ -22,8 +21,6 @@ export const ClientSelectRoot = ({
       return;
     }
 
-    Cookie.set("preferred-language", value);
-    console.log("reloading");
     router.push(pathname.replace(`/${defaultValue}`, `/${value}`));
   }, [value, defaultValue, pathname, router]);
 
