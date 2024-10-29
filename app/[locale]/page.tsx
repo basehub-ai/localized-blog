@@ -53,7 +53,7 @@ export default async function Page({
         return (
           <main>
             <section className="container mx-auto px-5">
-              <Intro />
+              <Intro locale={locale} />
               {heroPost && <HeroPost {...heroPost} locale={locale} />}
               <MoreStories
                 morePosts={morePosts}
